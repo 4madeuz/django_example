@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block  title %}
+Опросы
+{% endblock  %}
+{% block content %}
+{% include 'posts/includes/switcher.html' %}
+<div id="container"></div>
+<script src="https://code.highcharts.com/highcharts.src.js"></script>
+<script>
+  Highcharts.chart('container', {{ chart|safe }});
+</script>
+{% endblock  %}

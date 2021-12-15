@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block  title %}
+Опросы
+{% endblock  %}
+{% block content %}
+{% include 'posts/includes/switcher.html' %}
+{% if questions_list %}
+    <ul class="list-group">
+        {% for question in questions_list %}
+        <li class="list-group-item"> <a href="{% url 'posts:question' question.pk %}">
+             {{ question.question_text }}</a>
+        </li>
+        <br>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Опросы не найдены.</p>
+{% endif %}
+{% include 'posts/includes/paginator.html' %}
+{% endblock  %}
